@@ -2,7 +2,7 @@ const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder } = re
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('button-ouo')
+    .setName('button')
     .setDescription('Show Button'),
     async execute(interaction) {
 		const target = interaction.options.getUser('target');
