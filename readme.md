@@ -26,7 +26,7 @@
 ## About The Project
 
 
-This is Basic for Discord Chat bot
+This is My first discord chat bot
 
 
 <!-- GETTING STARTED -->
@@ -48,8 +48,6 @@ Use this commands in your terminal for setup Project
    ```
 
 ### Invite your Bot to your Discord channel
-
-Go to This link for Create your own Application / Bot
 
    ```sh
    https://discord.com/developers/applications
