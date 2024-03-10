@@ -45,6 +45,7 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
+
 client.once(Events.ClientReady, readyClient => {
 	console.log(`${readyClient.user.tag} Has login hehe~`);
 });
