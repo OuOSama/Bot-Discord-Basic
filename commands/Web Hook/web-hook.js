@@ -8,7 +8,7 @@ module.exports = {
     async execute(interaction) {
         const webhookClient = new WebhookClient({ id: process.env.webhookId, token: process.env.webhookToken });
         const embed = new EmbedBuilder()
-            .setTitle('From Dr.strange')
+            .setTitle('ข้อเจอแล้ว วิธีชนะมัน.....14 ล้าน กับอีก 605 แบบ')
             .setColor(0x00FFFF)
         webhookClient.send({
             username: 'Doctor Strange',

@@ -2,8 +2,39 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
-
+const Sequelize = require('sequelize');
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+// Database
+const sequelize = new Sequelize('database', '', '', {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	storage: 'database.sqlite',
+});
+
+// Create Table user
+const user = sequelize.define('user', {
+	name: {
+		type: Sequelize.STRING,
+		unique: true,
+	},
+	age:{
+		type: Sequelize.INTEGER,
+	},
+	email:{
+		type: Sequelize.STRING,
+	},
+
+});
+
+// Create Table food
+const food = sequelize.define('food', {
+	name: {
+		type: Sequelize.STRING,
+		unique: true,
+	},
+});
 
 client.commands = new Collection();
 const foldersPath = path.join(__dirname, 'commands');
@@ -32,7 +63,7 @@ client.on(Events.InteractionCreate, async interaction => {
 		console.error(`No command matching ${interaction.commandName} was found.`);
 		return;
 	}
-	
+
 	try {
 		await command.execute(interaction);
 	} catch (error) {
@@ -47,6 +78,7 @@ client.on(Events.InteractionCreate, async interaction => {
 
 
 client.once(Events.ClientReady, readyClient => {
+	sequelize.sync();
 	console.log(`${readyClient.user.tag} Has login hehe~`);
 });
 
